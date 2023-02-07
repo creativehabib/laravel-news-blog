@@ -40,7 +40,7 @@
                             <li><a href="{{asset('frontend/post-single.html')}}">They chose to leave rather than put up with a governor who follows science .</a></li>
                             <li><a href="{{asset('frontend/post-single.html')}}">Hold On to Your Travel Dreams in the World.</a></li>
                             <li><a href="{{asset('frontend/post-single.html')}}">White  endorses bill that would ensure abortion access.</a></li>
-                            <li><a href="post-single.html">NFL Power Rankings 2021: How all 32 teams stack up after Week 2.</a></li>
+                            <li><a href="#">NFL Power Rankings 2021: How all 32 teams stack up after Week 2.</a></li>
                         </ul>
                     </div>
                     <div class="n_contr-wrap">
@@ -61,7 +61,7 @@
         <div class="header-inner fl-wrap">
             <div class="container">
                 <!-- logo holder  -->
-                <a href="index.html" class="logo-holder"><img src="{{asset('frontend/images/logo.png')}}" alt=""></a>
+                <a href="{{route('home')}}" class="logo-holder"><img src="{{asset('frontend/images/logo.png')}}" alt=""></a>
                 <!-- logo holder end -->
                 <div class="search_btn htact show_search-btn"><i class="far fa-search"></i> <span class="header-tooltip">Search</span></div>
                 <div class="srf_btn htact show-reg-form"><i class="fal fa-user"></i> <span class="header-tooltip">Sign In</span></div>
@@ -70,7 +70,7 @@
                 <div class="header-search-wrap novis_sarch">
                     <div class="widget-inner">
                         <form action="#">
-                            <input name="se" id="se" type="text" class="search" placeholder="Search..." value="" />
+                            <label for="se"></label><input name="se" id="se" type="text" class="search" placeholder="Search..." value="" />
                             <button class="search-submit" id="submit_btn"><i class="fa fa-search transition"></i> </button>
                         </form>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 class PagesController extends Controller
 {
+
     public function elementsAvatar()
     {
         return view('pages/elements-avatar');
@@ -645,5 +646,20 @@ class PagesController extends Controller
     public function dashboardsWidgetContacts()
     {
         return view('pages/dashboards-widget-contacts');
+    }
+    public function postsAll(){
+        return view('pages/posts-list');
+    }
+
+    public function addpost(){
+        return view('pages/create-post');
+    }
+
+    public function categories(){
+        return view('pages/dashboards-widget-ui');
+    }
+
+    public function tags(){
+        return view('pages/dashboards-meetings');
     }
 }

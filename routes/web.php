@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', function(){
     return view('frontend.layout.app');
-});
+})->name('home');
 Route::middleware('guest')->group(function () {
     Route::get('/login', [\App\Http\Controllers\AuthController::class, 'loginView'])->name('loginView');
     Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
@@ -25,7 +25,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
-    Route::get('/dashboard', [PagesController::class, 'dashboardsCrmAnalytics'])->name('index');
+    Route::get('/dashboard', [PagesController::class, 'dashboardsCmsAnalytics'])->name('index');
 
     Route::get('/elements/avatar', [PagesController::class, 'elementsAvatar'])->name('elements/avatar');
     Route::get('/elements/alert', [PagesController::class, 'elementsAlert'])->name('elements/alert');
@@ -133,6 +133,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/apps/chat', [PagesController::class, 'appsChat'])->name('apps/chat');
     Route::get('/apps/filemanager', [PagesController::class, 'appsFilemanager'])->name('apps/filemanager');
     Route::get('/apps/kanban', [PagesController::class, 'appsKanban'])->name('apps/kanban');
+    Route::get('/blog/posts', [PagesController::class, 'postsAll'])->name('blog/posts');
+    Route::get('/blog/create', [PagesController::class, 'AddPost'])->name('blog/create');
+    Route::get('/blog/categories', [PagesController::class, 'categories'])->name('blog/categories');
+    Route::get('/blog/tags', [PagesController::class, 'tags'])->name('blog/tags');
     Route::get('/apps/list', [PagesController::class, 'appsList'])->name('apps/list');
     Route::get('/apps/mail', [PagesController::class, 'appsMail'])->name('apps/mail');
     Route::get('/apps/nft-1', [PagesController::class, 'appsNft1'])->name('apps/nft1');

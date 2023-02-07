@@ -574,105 +574,38 @@ class SidebarPanel
             'items' => [
                 [
                     'dashboards_crm_analytics' => [
-                        'title' => 'CRM Analytics',
-                        'route_name' => 'dashboards/crm-analytics'
-                    ],
-                    'dashboards_orders' => [
-                        'title' => 'Orders',
-                        'route_name' => 'dashboards/orders'
-                    ],
-                ],
-                [
-                    'dashboards_crypto' => [
-                        'title' => 'Cryptocurrency',
-                        'submenu' => [
-                            'dashboards_crypto_1' => [
-                                'title' => 'Cryptocurrency v1',
-                                'route_name' => 'dashboards/crypto-1'
-                            ],
-                            'dashboards_crypto_2' => [
-                                'title' => 'Cryptocurrency v2',
-                                'route_name' => 'dashboards/crypto-2'
-                            ]
-                        ]
-                    ],
-                    'dashboards_banking' => [
-                        'title' => 'Banking',
-                        'submenu' => [
-                            'dashboards_banking_1' => [
-                                'title' => 'Banking v1',
-                                'route_name' => 'dashboards/banking-1'
-                            ],
-                            'dashboards_banking_2' => [
-                                'title' => 'Banking v2',
-                                'route_name' => 'dashboards/banking-2'
-                            ]
-                        ]
-                    ],
-                    'dashboards_personal' => [
-                        'title' => 'Personal',
-                        'route_name' => 'dashboards/personal'
-                    ],
-                    'dashboards_cms_analytics' => [
-                        'title' => 'CMS Analytics',
+                        'title' => 'Dashboard',
                         'route_name' => 'dashboards/cms-analytics'
-                    ],
-                    'dashboards_influencer' => [
-                        'title' => 'Influencer',
-                        'route_name' => 'dashboards/influencer'
-                    ],
-                    'dashboards_travel' => [
-                        'title' => 'Travel',
-                        'route_name' => 'dashboards/travel'
-                    ],
-                    'dashboards_teacher' => [
-                        'title' => 'Teacher',
-                        'route_name' => 'dashboards/teacher'
-                    ],
-                    'dashboards_education' => [
-                        'title' => 'Education',
-                        'route_name' => 'dashboards/education'
-                    ],
-                    'dashboards_authors' => [
-                        'title' => 'Authors',
-                        'route_name' => 'dashboards/authors'
-                    ],
-                    'dashboards_doctor' => [
-                        'title' => 'Doctor',
-                        'route_name' => 'dashboards/doctor'
-                    ],
-                    'dashboards_employees' => [
-                        'title' => 'Employees',
-                        'route_name' => 'dashboards/employees'
-                    ],
-                    'dashboards_workspaces' => [
-                        'title' => 'Workspaces',
-                        'route_name' => 'dashboards/workspaces'
-                    ],
-                    'dashboards_meetings' => [
-                        'title' => 'Meetings',
-                        'route_name' => 'dashboards/meetings'
-                    ],
-                    'dashboards_project_boards' => [
-                        'title' => 'Project Boards',
-                        'route_name' => 'dashboards/project-boards'
-                    ],
+                    ]
                 ],
+
+            ]
+        ];
+    }
+
+    public static function posts(){
+        return [
+            'title' => 'Posts',
+            'items' => [
                 [
-                    'dashboards_widget_ui' => [
-                        'title' => 'Widget UI',
-                        'route_name' => 'dashboards/widget-ui'
+                    'blog_post_add' => [
+                        'title' => 'Add New',
+                        'route_name' => 'blog/create'
                     ],
-                    'dashboards_widget_contacts' => [
-                        'title' => 'Widget Contacts',
-                        'route_name' => 'dashboards/widget-contacts'
+                    'blog_category' => [
+                        'title' => 'Categories',
+                        'route_name' => 'blog/categories'
                     ],
-                ],
+                    'blog_tags' => [
+                        'title' => 'Tags',
+                        'route_name' => 'blog/tags'
+                    ]
+                ]
             ]
         ];
     }
 
     public static function all(){
-        return [self::dashboards(),self::apps(), self::layouts(), self::forms(), self::components(), self::elements()];
+        return [self::dashboards(),self::apps(), self::layouts(), self::forms(), self::components(), self::elements(), self::posts()];
     }
 }
