@@ -632,16 +632,16 @@ function initGmag() {
         });
         return false;
     });
-    if ($("#ajax-content").length > 0) {
-		$("#ajax-content").empty();
-		$.ajax({
-			url: 'ajax/category1.html',
-			success: function (html) {
-				$("#ajax-content").empty().append(html);
-				initbg();
-			}
-		});
-    }
+    // if ($("#ajax-content").length > 0) {
+	// 	$("#ajax-content").empty();
+	// 	$.ajax({
+	// 		url: 'ajax/category1.html',
+	// 		success: function (html) {
+	// 			$("#ajax-content").empty().append(html);
+	// 			initbg();
+	// 		}
+	// 	});
+    // }
     // scrolltofixed -----------------
     $(".fix-bar").scrollToFixed({
         minWidth: 1064,

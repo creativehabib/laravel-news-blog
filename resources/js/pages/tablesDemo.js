@@ -1,3 +1,5 @@
+import {data} from "autoprefixer";
+
 export function initExample1() {
   return {
     usersData: [
@@ -71,8 +73,8 @@ export function initGridTableExapmle() {
           formatter: (cell) => Gridjs.html(`<span class="mx-2">${cell}</span>`),
         },
         {
-          id: "name",
-          name: "Name",
+          id: "title",
+          name: "Title",
           formatter: (cell) =>
             Gridjs.html(
               `<span class="text-slate-700 dark:text-navy-100 font-medium">${cell}</span>`
@@ -80,7 +82,7 @@ export function initGridTableExapmle() {
         },
         {
           id: "avatar_url",
-          name: "Avatar",
+          name: "Image",
           sort: false,
           formatter: (cell) =>
             Gridjs.html(`<div class="avatar flex">
@@ -88,12 +90,12 @@ export function initGridTableExapmle() {
                                 </div>`),
         },
         {
-          id: "email",
-          name: "Email",
+          id: "post-created-by",
+          name: "Created By",
         },
         {
           id: "phone",
-          name: "Phone Number",
+          name: "Post Number",
         },
         {
           name: "Actions",
@@ -109,114 +111,19 @@ export function initGridTableExapmle() {
                         </div>`),
         },
       ],
-      data: [
-        {
-          id: "1",
-          name: "John",
-          email: "john@example.com",
-          phone: "(01) 22 888 4444",
-          avatar_url: "/images/200x200.png",
+
+        server: {
+            url: 'https://lineone-laravel.test/api/posts',
+            then: data => data.data.map(card => [card.id, card.title, card.image, card.user['name'],card.user['id']]),
+            handle: (res) => {
+                // no matching records found
+                if (res.status === 404) return {data: []};
+                if (res.ok) return res.json();
+
+                throw Error('oh no :(');
+            },
         },
-        {
-          id: "2",
-          name: "Doe",
-          email: "thedoe@example.com",
-          phone: "(33) 22 888 4444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "3",
-          name: "Nancy",
-          email: "nancy@example.com",
-          phone: "(21) 33 888 4444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "4",
-          name: "Clarke",
-          email: "clarke@example.com",
-          phone: "(44) 33 888 4444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "5",
-          name: "Robert",
-          email: "robert@example.com",
-          phone: "(27) 63 688 6444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "6",
-          name: "Tom",
-          email: "thetom@example.com",
-          phone: "(57) 63 688 6444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "7",
-          name: "Nolan",
-          email: "Nolan@example.com",
-          phone: "(27) 63 688 6444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "8",
-          name: "Adam",
-          email: "Adam@example.com",
-          phone: "(12) 22 888 4444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "9",
-          name: "Glen",
-          email: "Glen@example.com",
-          phone: "(74) 22 888 4444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "10",
-          name: "Edna",
-          email: "Edna@example.com",
-          phone: "(52) 33 888 4444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "11",
-          name: "Dianne",
-          email: "dianne@example.com",
-          phone: "(78) 33 888 4444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "12",
-          name: "Wilson",
-          email: "wilson@example.com",
-          phone: "(54) 63 688 6444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "13",
-          name: "Ross",
-          email: "rose@example.com",
-          phone: "(98) 63 688 6444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "14",
-          name: "Henry",
-          email: "henry@example.com",
-          phone: "(87) 63 688 6444",
-          avatar_url: "/images/200x200.png",
-        },
-        {
-          id: "15",
-          name: "Kerry",
-          email: "kerry@example.com",
-          phone: "(55) 63 688 6444",
-          avatar_url: "/images/200x200.png",
-        },
-      ],
-      sort: true,
+        sort: true,
       search: true,
       pagination: {
         enabled: true,

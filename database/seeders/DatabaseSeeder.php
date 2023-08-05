@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Category::factory(10)->create();
         \App\Models\Tag::factory(50)->create();
         \App\Models\Post::factory(1500)->create();
+        \App\Models\Comment::factory(1000)->create();
 
         // post_tag table has no Model so to seed it we need our own logic
         for ($i = 0; $i < 1500; $i++) {
